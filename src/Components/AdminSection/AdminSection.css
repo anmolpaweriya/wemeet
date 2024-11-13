@@ -1,0 +1,44 @@
+.underLineHeaiding {
+    margin: 50px 30px;
+    font-weight: 600;
+    font-size: 2.2em;
+    position: relative;
+    width: fit-content;
+}
+
+.underLineHeaiding::after {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #009afc;
+    bottom: -15px;
+    left: 0px;
+}
+
+
+.underLineHeaiding::before {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+    border-left: 20px solid #009afc;
+    bottom: -23px;
+    right: -35%;
+}
+
+
+.showUserDetails {
+    grid-template-columns: 1fr 1.5fr !important;
+}
+
+
+.showUserDetails>.profilePicDiv {
+    grid-template-rows: auto 0em !important;
+}
+
+
+.showUserDetails>.userDetailsDiv {
+    padding: 5px !important;
+    height: 100%;
+}
