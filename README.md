@@ -38,7 +38,7 @@ Instructors can monitor attendance in real-time, receiving automatic updates if 
 
 3. Set Env variables:
    ```env
-   NEXT_PUBLIC_API_URL=
+   VITE_API_URL=
    ```
 4. Start the Application:
    ```bash
