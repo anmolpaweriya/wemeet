@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+#root {
+    width: 100vw;
+    height: 100svh;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    height: 100svh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.glassy {
+    /* background: rgba(0, 154, 252, 0.45); */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+
+
+
+.blueGradient {
+    /* background: linear-gradient(90deg, #4ca5ff, #b573f8); */
+    @apply bg-gradient-to-r from-blue-600 to-cyan-600;
+
+}
+
+
+.orangeGradient {
+    /* background: linear-gradient(to right, #f59e0b, #ea580c, #eab308); */
+    @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500;
+}
+
+.greenGradient {
+    /* background: linear-gradient(to right, #4ade80, #22c55e); */
+
+    @apply bg-gradient-to-r from-green-400 to-green-500;
+}
+
+.gradientText {
+    @apply bg-clip-text text-transparent;
+    width: fit-content;
+}

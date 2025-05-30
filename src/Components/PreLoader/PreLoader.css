@@ -1,0 +1,58 @@
+.PreLoader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: #000000c5;
+
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+
+
+
+
+
+}
+
+
+.PreLoader>.loadingAnimation {
+    display: flex;
+    gap: 1em;
+}
+
+
+.PreLoader>.loadingAnimation>.animationSphere {
+    border-radius: 50%;
+    background-color: var(--theme-color, #009afc);
+    padding: 0.5em;
+
+    animation: sphereAnimate 1s ease-in-out calc(var(--i) * 0.1s) infinite;
+}
+
+
+.hideLoading {
+    display: none;
+}
+
+@keyframes sphereAnimate {
+    0% {
+        transform: translateY(0em);
+    }
+
+    50% {
+        transform: translateY(-1em);
+    }
+
+    100% {
+        transform: translateY(0em);
+
+    }
+}

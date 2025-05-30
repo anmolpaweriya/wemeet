@@ -1,0 +1,327 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.ToastListMainDiv {
+    z-index: 100;
+    position: fixed;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    gap: 1em;
+
+
+
+    /* variables */
+    --spacing: 10px;
+
+    --toastify-color-light: #fff;
+    --toastify-color-dark: #121212;
+    --toastify-color-info: #3498db;
+    --toastify-color-success: #07bc0c;
+    --toastify-color-warning: #f1c40f;
+    --toastify-color-error: #e74c3c;
+    --toastify-color-rainbow: linear-gradient(90deg, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+
+
+
+
+
+    /* properties */
+    --toast-bg-color: var(--toastify-color-light);
+    --toast-color: var(--toastify-color-dark);
+    --toastify-progress-bar: var(--toastify-color-rainbow)
+}
+
+
+.infoToast {
+    --toastify-progress-bar: var(--toastify-color-info)
+}
+
+.successToast {
+    --toastify-progress-bar: var(--toastify-color-success)
+}
+
+.warningToast {
+    --toastify-progress-bar: var(--toastify-color-warning)
+}
+
+.errorToast {
+    --toastify-progress-bar: var(--toastify-color-error)
+}
+
+.darkTheme {
+    --toast-bg-color: var(--toastify-color-dark);
+    --toast-color: var(--toastify-color-light);
+}
+
+
+.topPosition {
+    top: var(--spacing);
+    flex-direction: column-reverse;
+
+}
+
+.bottomPosition {
+    bottom: var(--spacing);
+    flex-direction: column;
+
+}
+
+.leftPosition {
+    left: var(--spacing);
+
+}
+
+.rightPosition {
+    right: var(--spacing);
+}
+
+.centerPosition {
+    flex-direction: column !important;
+}
+
+.centerPosition {
+
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.ToastListMainDiv>.ToastMessage {
+    width: 300px;
+    background-color: var(--toast-bg-color);
+    color: var(--toast-color);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #333;
+
+    display: grid;
+    grid-template-rows: auto 5px;
+    overflow: hidden;
+
+
+    transition: 0.3s ease-in-out;
+    position: relative;
+
+}
+
+.ToastListMainDiv>.ToastMessage>.messageSection {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    padding: 20px 15px;
+    word-break: break-all;
+
+
+}
+
+.ToastListMainDiv>.ToastMessage>.messageSection>.toastIcon {
+    width: 1em;
+    height: 1em;
+}
+
+
+
+.ToastListMainDiv>.ToastMessage>.timerDiv {
+    background: var(--toastify-progress-bar);
+    transform-origin: left;
+    animation: timerAnimate var(--timer, 5s) ease-in-out;
+}
+
+
+
+
+
+
+
+.ToastListMainDiv>.ToastMessage::after {
+    content: "\00D7";
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: gray;
+    font-size: 1.2em;
+}
+
+
+.ToastListMainDiv:is(.leftPosition)>.ToastMessage {
+    left: -200%;
+}
+
+.ToastListMainDiv:is(.centerPosition)>.ToastMessage {
+    top: -100svh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.ToastListMainDiv:is(.rightPosition)>.ToastMessage {
+    right: -200%;
+}
+
+.ToastListMainDiv:is(.leftPosition)>.enterAnimation {
+    animation: enterAnimateLeft 0.5s ease-in-out;
+    left: 0%;
+}
+
+
+.ToastListMainDiv:is(.leftPosition)>.outAnimation {
+    animation: outAnimateLeft 0.5s ease-in-out;
+    /* transform: scaleY(0); */
+    overflow: hidden;
+
+
+}
+
+.ToastListMainDiv:is(.rightPosition)>.enterAnimation {
+    animation: enterAnimateRight 0.5s ease-in-out;
+    right: 0%;
+}
+
+
+.ToastListMainDiv:is(.rightPosition)>.outAnimation {
+    animation: outAnimateRight 0.5s ease-in-out;
+
+    overflow: hidden;
+
+
+}
+
+.ToastListMainDiv:is(.centerPosition)>.enterAnimation {
+    animation: enterAnimateCenter 0.5s ease-in-out;
+    top: 0svh;
+}
+
+
+.ToastListMainDiv:is(.centerPosition)>.outAnimation {
+    animation: outAnimateCenter 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+
+
+@keyframes timerAnimate {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes enterAnimateLeft {
+    0% {
+        left: -200%;
+    }
+
+    50% {
+        left: 10%;
+    }
+
+    75% {
+        left: -5%;
+    }
+
+    100% {
+        left: 0%;
+    }
+
+}
+
+@keyframes outAnimateLeft {
+    0% {
+        left: 0%;
+    }
+
+    50% {
+        left: 10%;
+    }
+
+    75% {
+        left: -5%;
+    }
+
+    100% {
+        left: -200%;
+    }
+
+}
+
+@keyframes enterAnimateRight {
+    0% {
+        right: -200%;
+    }
+
+    50% {
+        right: 10%;
+    }
+
+    75% {
+        right: -5%;
+    }
+
+    100% {
+        right: 0%;
+    }
+
+}
+
+@keyframes outAnimateRight {
+    0% {
+        right: 0%;
+    }
+
+    50% {
+        right: 10%;
+    }
+
+    75% {
+        right: -5%;
+    }
+
+    100% {
+        right: -200%;
+    }
+
+}
+
+@keyframes enterAnimateCenter {
+    0% {
+        top: -100svh;
+    }
+
+    50% {
+        top: 10svh;
+    }
+
+    75% {
+        top: -5svh;
+    }
+
+    100% {
+        top: 0svh;
+    }
+
+}
+
+@keyframes outAnimateCenter {
+    0% {
+        top: 0svh;
+    }
+
+    50% {
+        top: 10svh;
+    }
+
+    75% {
+        top: -5svh;
+    }
+
+    100% {
+        top: -100svh;
+    }
+
+}
