@@ -36,11 +36,13 @@ Instructors can monitor attendance in real-time, receiving automatic updates if 
    npm install
    ```
 
-3. Start the Application:
+3. Set Env variables:
+   ```env
+   NEXT_PUBLIC_API_URL=
+   ```
+4. Start the Application:
    ```bash
    npm run dev
    ```
-   
+
 This will launch the app in development mode. Open http://localhost:3000 to view it in the browser.
-
-
